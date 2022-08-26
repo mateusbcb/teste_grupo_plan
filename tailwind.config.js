@@ -9,6 +9,8 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
+    prefix: 'tw-',
+
     theme: {
         extend: {
             fontFamily: {
