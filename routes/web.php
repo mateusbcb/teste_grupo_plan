@@ -23,13 +23,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     //Listar
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     //Visualizar
-    Route::get('/eletrodomestico/{id}', [DashboardController::class, 'eletrodomestico'])->name('eletrodomestico');
+    Route::get('/eletrodomestico/{id}', [DashboardController::class, 'show'])->name('eletrodomestico');
     //Criar
     Route::get('/novo_eletrodomestico', [DashboardController::class, 'create'])->name('eletrodomestico.novo');
     Route::post('/novo_eletrodomestico', [DashboardController::class, 'store'])->name('eletrodomestico.store');
     //Editar
     Route::get('/editar_eletrodomestico/{id}', [DashboardController::class, 'edit'])->name('eletrodomestico.editar');
-    Route::post('/editar_eletrodomestico', [DashboardController::class, 'edit_save'])->name('eletrodomestico.salvar');
+    Route::post('/editar_eletrodomestico', [DashboardController::class, 'update'])->name('eletrodomestico.salvar');
     //Deletar
     Route::delete('/deletar_eletrodomestico/{id}', [DashboardController::class, 'delete'])->name('eletrodomestico.delete');
 });
