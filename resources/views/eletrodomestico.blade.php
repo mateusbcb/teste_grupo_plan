@@ -37,7 +37,7 @@
                                 </tr>
                                 <tr>
                                     <td class="bg-black w-25 text-center">Marca</td>
-                                    <td class="bg-white text-black">{{ $eletrodomestico->marca_id }}</td>
+                                    <td class="bg-white text-black">{{ $eletrodomestico->marca->nome }}</td>
                                 </tr>
                                 <tr>
                                     <td class="bg-black w-25 text-center">Preço</td>
