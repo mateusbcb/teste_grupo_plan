@@ -9,7 +9,7 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
-    prefix: 'tw-',
+    //prefix: '',
 
     theme: {
         extend: {
