@@ -96,10 +96,6 @@
                             </p>
 
                             <div class="text-end">
-
-
-
-
                                 {{ $eletrodomesticos->links() }}
                             </div>
                         </div>

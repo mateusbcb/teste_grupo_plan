@@ -1,77 +1,106 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <title>Login</title>
+</head>
+<body class="bg-dark" style="background-image: url({{ mix('resources/imgs/FundoLogin.jpg') }}); background-repeat: no-repeat; background-size: cover;">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+    <div id="app">
+        <div class="container">
+            <div class="col-3 mx-auto mt-5 bg-white rounded shadow">
+                <div class="row">
+                    <div id="Logo" class="text-center my-4">
+                        <img src="{{ mix('resources/imgs/logoplangroup.png') }}" alt="Logo">
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <div id="form">
+                        <form class="col-9 mx-auto mb-4" method="POST" action="{{ route('register') }}">
+                            @csrf
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="name" class="col col-form-label text-md-end">{{ __('Name') }}</label>
+                                    <input id="name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="email" class="col col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                    <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="password" class="col col-form-label text-md-end">{{ __('Password') }}</label>
+                                    <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                            <div class="row mb-3">
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <div class="col">
+                                    <label for="password-confirm" class="col col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                    <input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" required autocomplete="new-password">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <div class="row mb-0 mt-5">
+                                <div class="col mb-4 d-grid">
+                                    <button type="submit" class="btn btn-dark btn-lg">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    {{ __('Já possui uma conta?') }}
+                                </a>
+
+                                <a class="btn btn-link" href="{{ route('index') }}">
+                                    {{ __('Voltar') }}
+                                </a>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-black text-white fixed-bottom">
+            <div class="container">
+                <div class="mx-auto">
+                    © 2022 Plan Group Brasil, Todos os Direitos Reservados.
+                </div>
+            </div>
+        </nav>
     </div>
-</div>
-@endsection
+
+</body>
+</html>
