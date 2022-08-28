@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +34,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/editar_eletrodomestico/{id}', [DashboardController::class, 'edit'])->name('eletrodomestico.editar');
     Route::post('/editar_eletrodomestico', [DashboardController::class, 'update'])->name('eletrodomestico.salvar');
     //Deletar
-    Route::delete('/deletar_eletrodomestico/{id}', [DashboardController::class, 'delete'])->name('eletrodomestico.delete');
+    Route::delete('/deletar_eletrodomestico/{id}', [DashboardController::class, 'destroy'])->name('eletrodomestico.delete');
 });
 
 Auth::routes();

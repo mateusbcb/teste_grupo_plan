@@ -11,27 +11,40 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
     */
-    public function index()
+    public function index(Request $request)
     {
         $eletrodomesticos = Eletrodomestico::with('marca')->paginate(10)->withQueryString();
         $marcas = Marca::all();
 
-        return view('dashboard', [
-            'eletrodomesticos' => $eletrodomesticos,
-            'marcas' => $marcas
-        ]);
+        $api = $request->is('api/*');
+
+        if ($api) {
+            return response()->json($eletrodomesticos, 200);
+        }else {
+            return view('dashboard', [
+                'eletrodomesticos' => $eletrodomesticos,
+                'marcas' => $marcas
+            ]);
+        }
     }
 
     /**
      * Display the specified resource.
     */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $eletrodomestico = Eletrodomestico::with('marca')->find($id);
 
-        return view('eletrodomestico', [
-            'eletrodomestico' => $eletrodomestico,
-        ]);
+        $api = $request->is('api/*');
+
+        if ($api) {
+            return response()->json($eletrodomestico, 200);
+        }else {
+            return view('eletrodomestico', [
+                'eletrodomestico' => $eletrodomestico,
+            ]);
+        }
+
     }
 
     /**
@@ -68,11 +81,20 @@ class DashboardController extends Controller
 
             $criado = $eletrodomestico->create($request->all());
 
-            if ($criado) {
-                return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico criado com sucesso!');
+            $api = $request->is('api/*');
+
+            if ($api) {
+                return response()->json($criado, 200);
             }else {
-                return redirect()->route('dashboard')->with('error', 'Falha ao criar Eletrodomestico!');
+
+                if ($criado) {
+                    return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico criado com sucesso!');
+                }else {
+                    return redirect()->route('dashboard')->with('error', 'Falha ao criar Eletrodomestico!');
+                }
+
             }
+
 
         }else {
             return redirect()->back()->with('error', 'Preencha todos os campos obrigatórios!')->withInput();
@@ -123,11 +145,21 @@ class DashboardController extends Controller
                 'update_at' => now(),
             ]);
 
-            if ($atualizado) {
-                return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico Editado com sucesso!');
+            $eletrodomestico_atualizado = $eletrodomestico->where('id', $request->id)->get();
+
+            $api = $request->is('api/*');
+
+            if ($api) {
+                return response()->json($eletrodomestico_atualizado, 200);
             }else {
-                return redirect()->route('dashboard')->with('error', 'Falha ao Editar Eletrodomestico!');
+
+                if ($atualizado) {
+                    return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico Editado com sucesso!');
+                }else {
+                    return redirect()->route('dashboard')->with('error', 'Falha ao Editar Eletrodomestico!');
+                }
             }
+
 
         }else {
             return redirect()->back()->with('error', 'Preencha todos os campos obrigatórios!')->withInput();
@@ -137,16 +169,23 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
     */
-    public function delete($id)
+    public function destroy(Request $request, $id)
     {
         $eletrodomestico = Eletrodomestico::find($id);
 
         $deletou = $eletrodomestico->delete();
 
-        if ($deletou) {
-            return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico Deletado com sucesso!');
+        $api = $request->is('api/*');
+
+        if ($api) {
+            return response()->json($deletou, 200);
         }else {
-            return redirect()->route('dashboard')->with('error', 'Falha ao Deletar Eletrodomestico!');
+            if ($deletou) {
+                return redirect()->route('dashboard')->with('sucess', 'Eletrodomestico Deletado com sucesso!');
+            }else {
+                return redirect()->route('dashboard')->with('error', 'Falha ao Deletar Eletrodomestico!');
+            }
         }
+
     }
 }

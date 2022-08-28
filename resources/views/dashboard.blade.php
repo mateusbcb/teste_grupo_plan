@@ -33,6 +33,7 @@
                         <table class="table table-dark table-striped table-hover table-borderless table-sm text-center">
                             <thead>
                                 <tr>
+                                    <th scope="col" style="width: auto;">ID</th>
                                     <th scope="col" style="width: 30%;">Nome</th>
                                     <th scope="col" style="width: 30%;">Descrição</th>
                                     <th scope="col" style="width: 10%;">Tensão</th>
@@ -43,6 +44,7 @@
                             <tbody>
                                 @forelse ($eletrodomesticos as $eletrodomestico)
                                     <tr>
+                                        <td>{{ $eletrodomestico->id }}</td>
                                         <td class="text-truncate" style="max-width: 0;">{{ $eletrodomestico->nome }}</td>
                                         <td class="text-truncate" style="max-width: 0;">{{ $eletrodomestico->descricao }}</td>
                                         <td>{{ $eletrodomestico->tensao }}</td>
