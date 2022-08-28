@@ -15,7 +15,7 @@
 
     <div id="app">
         <div class="container">
-            <div class="col-3 mx-auto mt-5 bg-white rounded shadow">
+            <div class="col col-md-6 col-lg-4 mx-auto mt-2 mt-lg-5 bg-white rounded shadow">
                 <div class="row">
                     <div id="Logo" class="text-center my-4">
                         <img src="{{ mix('resources/imgs/logoplangroup.png') }}" alt="Logo">

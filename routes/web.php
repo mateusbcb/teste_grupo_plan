@@ -24,8 +24,10 @@ Route::get('/', function () {
 })->name('index');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     //Listar
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/eletrodomesticos', [DashboardController::class, 'index'])->name('eletrodomesticos');
     //Visualizar
     Route::get('/eletrodomestico/{id}', [DashboardController::class, 'show'])->name('eletrodomestico');
     //Criar

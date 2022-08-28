@@ -9,6 +9,25 @@ use App\Models\Marca;
 class DashboardController extends Controller
 {
     /**
+     * dASHBOARD
+     */
+    public function dashboard(Request $request)
+    {
+        $eletrodomesticos = Eletrodomestico::with('marca')->paginate(10)->withQueryString();
+        $marcas = Marca::all();
+
+        $api = $request->is('api/*');
+
+        if ($api) {
+            return response()->json($eletrodomesticos, 200);
+        }else {
+            return view('dashboard', [
+                'eletrodomesticos' => $eletrodomesticos,
+                'marcas' => $marcas
+            ]);
+        }
+    }
+    /**
      * Display a listing of the resource.
     */
     public function index(Request $request)
@@ -21,7 +40,7 @@ class DashboardController extends Controller
         if ($api) {
             return response()->json($eletrodomesticos, 200);
         }else {
-            return view('dashboard', [
+            return view('eletrodomesticos', [
                 'eletrodomesticos' => $eletrodomesticos,
                 'marcas' => $marcas
             ]);

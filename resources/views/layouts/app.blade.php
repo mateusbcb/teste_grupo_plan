@@ -38,10 +38,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link fs-3 link-hover">Home</a>
+                            <a href="{{ route('dashboard') }}" class="nav-link fs-3 link-hover @if(Request::is('dashboard')) active @endif">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dashboard') }}" class="nav-link text-white fs-3 link-hover">Eletrodomesticos</a>
+                            <a href="{{ route('eletrodomesticos') }}" class="nav-link fs-3 link-hover @if(Request::is('eletrodomesticos')) active @endif">Eletrodomesticos</a>
                         </li>
                     </ul>
 
