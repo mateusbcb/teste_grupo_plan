@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('/editar_eletrodomestico', [DashboardController::class, 'update'])->name('eletrodomestico.salvar');
     //Deletar
     Route::delete('/deletar_eletrodomestico/{id}', [DashboardController::class, 'destroy'])->name('eletrodomestico.delete');
+    // Filtro
+    Route::get('/eletrodomestico/filtro/{marca_id}', [DashboardController::class, 'filter'])->name('eletrodomestico.filter');
 });
 
 Auth::routes();

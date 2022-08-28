@@ -145,7 +145,7 @@ class DashboardController extends Controller
                 'update_at' => now(),
             ]);
 
-            $eletrodomestico_atualizado = $eletrodomestico->where('id', $request->id)->get();
+            $eletrodomestico_atualizado = $eletrodomestico->where('id', $request->id)->with('marca')->get();
 
             $api = $request->is('api/*');
 
@@ -186,6 +186,19 @@ class DashboardController extends Controller
                 return redirect()->route('dashboard')->with('error', 'Falha ao Deletar Eletrodomestico!');
             }
         }
+    }
 
+    public function filter(Request $request, $marca_id)
+    {
+        $eletrodomestico = new Eletrodomestico();
+
+        $marcas = Marca::all();
+
+        $resultado = $eletrodomestico->where('marca_id', $marca_id)->with('marca')->paginate(10);
+
+        return view('dashboard', [
+            'eletrodomesticos' => $resultado,
+            'marcas' => $marcas
+        ]);
     }
 }

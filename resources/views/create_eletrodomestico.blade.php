@@ -16,7 +16,7 @@
                     </a>
                 </div>
 
-                <h3 class="card-title mb-5 mt-5">Criar novo Eletrodomestico</h3>
+                <h3 class="card-title mb-5 mt-5">Criar novo Eletrodoméstico</h3>
 
 
                 <p class="card-text">
@@ -24,8 +24,8 @@
                         @csrf
 
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do Eletrodomestico" required>
-                            <label for="nome" class="text-black">Nome do Eletrodomestico</label>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do Eletrodoméstico" required>
+                            <label for="nome" class="text-black">Nome do Eletrodoméstico</label>
                         </div>
 
                         <div class="form-floating mb-4">

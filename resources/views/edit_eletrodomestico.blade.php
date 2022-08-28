@@ -26,8 +26,8 @@
 
 
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" name="nome" id="nome"  placeholder="Nome do Eletrodomestico" required value="{{ $eletrodomestico->nome }}">
-                            <label for="nome" class="text-black">Nome do Eletrodomestico</label>
+                            <input type="text" class="form-control" name="nome" id="nome"  placeholder="Nome do Eletrodoméstico" required value="{{ $eletrodomestico->nome }}">
+                            <label for="nome" class="text-black">Nome do Eletrodoméstico</label>
                         </div>
 
                         <div class="form-floating mb-4">

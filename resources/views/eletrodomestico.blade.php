@@ -16,7 +16,7 @@
                     </a>
                 </div>
 
-                <h3 class="card-title mb-5 mt-5">Eletrodomestico - {{ $eletrodomestico->nome }}</h3>
+                <h3 class="card-title mb-5 mt-5">Eletrodoméstico - {{ $eletrodomestico->nome }}</h3>
 
 
                 <p class="card-text">
