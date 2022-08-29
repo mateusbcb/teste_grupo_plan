@@ -28,7 +28,7 @@
                                 <p class="text-center fw-semibold fs-5 border-2 border-bottom">
                                     Marcas
                                 </p>
-                                <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary mb-2">Todas</a>
+                                <a href="{{ route('eletrodomesticos') }}" class="btn btn-outline-secondary mb-2">Todas</a>
 
                                 @forelse ($marcas as $marca)
                                     <a href="{{ route('eletrodomestico.filter', ['marca_id' => $marca->id]) }}" class="btn btn-outline-secondary mb-2">{{ $marca->nome }}</a>
