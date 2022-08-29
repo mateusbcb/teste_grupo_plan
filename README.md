@@ -52,7 +52,7 @@ Requisitos Técnicos:
 ----------
 
 ## Instalação
-Para instalação, irei partir do pressuposto que já tenha instalado e configurado o básico para rodar o PHP com o Laravel. Lembrando que eu utilizei as tecnologias ja citadas a cima.
+Para instalação, irei partir do pressuposto que já tenha instalado e configurado o básico para rodar o PHP com o Laravel. Lembrando que eu utilizei as tecnologias já citadas acima.
 
 1º Faça o clone desse repositório
 
@@ -91,7 +91,7 @@ Senha: password
 ````
 npm run dev
 ````
-esse comando, ficará rodando no terminal, executando o pacote "Vite", do laravel 9 para monitorar os recursos do projeto.
+Esse comando, ficará rodando no terminal, executando o pacote "Vite", do laravel 9 para monitorar os recursos do projeto.
 
 8º Por final basta rodar o servidor local do Laravel com o comando:
 ````
@@ -109,7 +109,7 @@ Se tudo ocorreu bem é para estar vendo a página inicial do Teste. Tela de Logi
 > npm run build
 > npm run dev
 > ````
-> Talvez seja necessário rodar o caomando '**npm audit fix**' ou '**npm audit fix --force**'.
+> Talvez seja necessário rodar o comando '**npm audit fix**' ou '**npm audit fix --force**'.
 
 ----------
 
@@ -117,11 +117,11 @@ Se tudo ocorreu bem é para estar vendo a página inicial do Teste. Tela de Logi
 
 ## API
 
-Para usar as endpoints da api, é necessário ter uma conta na plataforma. por padão, existe o usuário admin, criado na 6ª etapa da instalação.
+Para usar os endpoints da api, é necessário ter uma conta na plataforma. Por padrão, existe o usuário admin, criado na 6ª etapa da instalação.
 
 > Para fins de teste da API foi utilizado o **POSTAN**.
 
-Com o Postman aberto dentro de Workspace, crie uma nova Collection, ou simplesmete uma nova aba.
+Com o Postman aberto dentro de Workspace, crie uma nova Collection, ou simplesmente uma nova aba.
 
 <br>
 
@@ -135,7 +135,7 @@ Com o Postman aberto dentro de Workspace, crie uma nova Collection, ou simplesme
 
 Antes de testar todos os endpoints, não esqueça de se logar para gerar o Token de autorização do JWT.
 
-Todos os endipoints possuiem uma url base que por estar localmente deve ser: 
+Todos os endpoints possuem uma url base que por estar localmente deve ser: 
 ````
 URL_Base = http://127.0.0.1:8000
 ````
@@ -157,14 +157,14 @@ URL_Base = http://127.0.0.1:8000
 >   {{url_base}}/api/login
 >   ````
 
-Na aba Body->form-data, insira os segintes KEY e Value:
+Na aba Body->form-data, insira os seguintes KEY e Value:
 
 | Key | Value |
 |-----|-------|
 | email | admin@plan.com.br |
 | password | password |
 
-Clique em "Send", caso de tudo certo, receberá como resposta um Json com o Token, semelhante a esse:
+Clique em "Send", caso dê tudo certo, receberá como resposta um Json com o Token, semelhante a esse:
 ````
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjYxNzg1NjMzLCJleHAiOjE2NjE3ODkyMzMsIm5iZiI6MTY2MTc4NTYzMywianRpIjoiTkc4WVpiRW12TEZOeTNlYyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Bx9bKs6pceLiLxPBwvdIDDdgrs3xQV7jeBNQblPysK0",
@@ -175,11 +175,11 @@ Clique em "Send", caso de tudo certo, receberá como resposta um Json com o Toke
 
 <br>
 
-Com o Token em mãos, nos endpoints que precisam de autorização, será necessário inserir na gia de "Autorization", selecione o Type: "Bearer Token" e insira o Token gerado.
+Com o Token em mãos, nos endpoints que precisam de autorização, será necessário inserir na guia de "Autorization", selecionar o Type: "Bearer Token" e inserir o Token gerado.
 
-### **Lista os Eletrodomésticos**
+### **Lista os eletrodomésticos**
 
-- Lista todos os eletrodomesticos.
+- Lista todos os eletrodomésticos.
 
 > **Method**: <u>GET|HEAD</u>
 > - ````
@@ -188,9 +188,9 @@ Com o Token em mãos, nos endpoints que precisam de autorização, será necess�
 
 <br>
 
-### **Selecione um Eletrodoméstico**
+### **Selecione um eletrodoméstico**
 
-- Seleciona um eletrodomestico com base no seu ID.
+- Seleciona um eletrodoméstico com base no seu ID.
 
 > **Method**: <u>GET|HEAD</u>
 > - ````
@@ -201,7 +201,7 @@ Com o Token em mãos, nos endpoints que precisam de autorização, será necess�
 
 ### **Criar um Eletrodoméstico**
 
-- Crie um novo eletrodomestico.
+- Crie um novo eletrodoméstico.
 
 > **Method**: <u>POST</u>
 > - ````
@@ -224,7 +224,7 @@ Para a criação é necessário preencher os campos em Body->x-www-urlencoded co
 
 ### **Editar um Eletrodoméstico**
 
-- Edita um eletrodomestico com base em seu ID.
+- Edita um eletrodoméstico com base em seu ID.
 
 > **Method**: <u>PUT|PATCH</u>
 > - ````
@@ -238,15 +238,15 @@ Para editar é necessário preencher os campos em Body->x-www-urlencoded com os 
 | nome | Nome do Eletrodoméstico |
 | descricao | Descrição do eletrodoméstico |
 | tensao | 110v ou 220v |
-| maraca_id | ID da Marca |
-| preco | preço (campo string, pode preecher ponto e virgula) |
+| marca_id | ID da Marca |
+| preco | preço (campo string, pode preencher ponto e vírgula) |
 | cor | Cor (string, insira o nome da Cor) |
 
 <br>
 
 ### **Deletar um Eletrodoméstico**
 
-- Deleta um eletrodomestico com base em seu ID.
+- Deleta um eletrodoméstico com base em seu ID.
 
 > **Method**: <u>DELETE</u>
 > - ````
