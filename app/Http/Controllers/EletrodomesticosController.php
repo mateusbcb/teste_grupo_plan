@@ -88,7 +88,7 @@ class EletrodomesticosController extends Controller
             }else {
 
                 if ($criado) {
-                    return redirect()->route('eletrodomesticos')->with('success', 'Eletrodomestico criado com sucesso!');
+                    return redirect()->route('eletrodomesticos')->with('success', 'Eletrodoméstico criado com sucesso!');
                 }else {
                     return redirect()->route('eletrodomesticos')->with('error', 'Falha ao criar Eletrodomestico!');
                 }
@@ -154,7 +154,7 @@ class EletrodomesticosController extends Controller
             }else {
 
                 if ($atualizado) {
-                    return redirect()->route('eletrodomesticos')->with('success', 'Eletrodomestico Editado com sucesso!');
+                    return redirect()->route('eletrodomesticos')->with('success', 'Eletrodoméstico Editado com sucesso!');
                 }else {
                     return redirect()->route('eletrodomesticos')->with('error', 'Falha ao Editar Eletrodomestico!');
                 }
@@ -181,7 +181,7 @@ class EletrodomesticosController extends Controller
             return response()->json($eletrodomestico, 200);
         }else {
             if ($deletou) {
-                return redirect()->route('eletrodomesticos')->with('success', 'Eletrodomestico Deletado com sucesso!');
+                return redirect()->route('eletrodomesticos')->with('success', 'Eletrodoméstico Deletado com sucesso!');
             }else {
                 return redirect()->route('eletrodomesticos')->with('error', 'Falha ao Deletar Eletrodomestico!');
             }

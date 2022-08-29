@@ -61,7 +61,6 @@ Para instalação, irei partir do pressuposto que já tenha instalado e configur
 3º Duplique o arquivo ".env.example" e renomeie para ".env".
 
 4º Dentro do arquivo ".env" procure as configurações de Banco de Dados 
-
 ```
 DB_CONNECTION=mysql
 DB_HOST=[NOME DO SEU HOST]
@@ -86,14 +85,21 @@ Usuário: admin@plan.com.br
 Senha: password
 ````
 
-7º Rode o comando:
+7º Rode o comando
+````
+php artisan jwt:secret
+````
 
+Para gerar no .env a secret key do JWT
+
+8º Rode o comando:
 ````
 npm run dev
 ````
+
 Esse comando, ficará rodando no terminal, executando o pacote "Vite", do laravel 9 para monitorar os recursos do projeto.
 
-8º Por final basta rodar o servidor local do Laravel com o comando:
+9º Por final basta rodar o servidor local do Laravel com o comando:
 ````
 php artisan serve
 ````

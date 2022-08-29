@@ -11,7 +11,21 @@
                     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
 
                         <div class="col">
-                            <a href="{{ route('eletrodomesticos') }}" class="btn btn-warning p-4">eletrodomesticos</a>
+                            <a href="{{ route('eletrodomesticos') }}" class="btn btn-warning p-4 position-relative">
+                                eletrodomesticos
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                    {{ count($eletrodomesticos) }}
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="col">
+                            <a href="#" class="btn btn-warning p-4 position-relative">
+                                Marcas
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">
+                                    {{ count($marcas) }}
+                                </span>
+                            </a>
                         </div>
 
                     </div>

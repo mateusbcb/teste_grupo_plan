@@ -13,6 +13,12 @@ class DashboardController extends Controller
      */
     public function dashboard(Request $request)
     {
-        return view('dashboard');
+        $eletrodomesticos = Eletrodomestico::all();
+        $marcas = Marca::all();
+
+        return view('dashboard', [
+            'eletrodomesticos' => $eletrodomesticos,
+            'marcas' => $marcas,
+        ]);
     }
 }
