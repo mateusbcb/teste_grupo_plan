@@ -83,7 +83,7 @@ php artisan migrate:fresh --seed
 Esse comando irá criar as tabelas no DB e popular com algumas marcas e um usuário Admin.
 ````
 Usuário: admin@plan.com.br
-Senha: admin
+Senha: password
 ````
 
 7º Rode o comando:
@@ -161,8 +161,8 @@ Na aba Body->form-data, insira os segintes KEY e Value:
 
 | Key | Value |
 |-----|-------|
-|email|admin@plan.com.br|
-|password|admin|
+| email | admin@plan.com.br |
+| password | password |
 
 Clique em "Send", caso de tudo certo, receberá como resposta um Json com o Token, semelhante a esse:
 ````
@@ -235,7 +235,6 @@ Para editar é necessário preencher os campos em Body->x-www-urlencoded com os 
 
 | KEY | VALUE |
 |-----|-------|
-| id | ID do eletrodomestico a ser editado |
 | nome | Nome do Eletrodoméstico |
 | descricao | Descrição do eletrodoméstico |
 | tensao | 110v ou 220v |

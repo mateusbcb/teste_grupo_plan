@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EletrodomesticosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Route::prefix('v1')->middleware('jwt.auth')->group(function () {
     Route::post('me',       [AuthController::class, 'me'])->name('auth.me');
     Route::post('logout',   [AuthController::class, 'logout'])->name('auth.logout');
 
-    Route::resource('/eletrodomesticos', DashboardController::class);
+    Route::resource('/eletrodomesticos', EletrodomesticosController::class);
 });
 
 // Route::middleware('auth:sanctum')->prefix('/v1')->group( function () {

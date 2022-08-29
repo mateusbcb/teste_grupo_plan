@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EletrodomesticosController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,20 +26,24 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    /**
+     * Eletrodomésticos
+     */
     //Listar
-    Route::get('/eletrodomesticos', [DashboardController::class, 'index'])->name('eletrodomesticos');
+    Route::get('/eletrodomesticos', [EletrodomesticosController::class, 'index'])->name('eletrodomesticos');
     //Visualizar
-    Route::get('/eletrodomestico/{id}', [DashboardController::class, 'show'])->name('eletrodomestico');
+    Route::get('/eletrodomestico/{id}', [EletrodomesticosController::class, 'show'])->name('eletrodomestico');
     //Criar
-    Route::get('/novo_eletrodomestico', [DashboardController::class, 'create'])->name('eletrodomestico.novo');
-    Route::post('/novo_eletrodomestico', [DashboardController::class, 'store'])->name('eletrodomestico.store');
+    Route::get('/novo_eletrodomestico', [EletrodomesticosController::class, 'create'])->name('eletrodomestico.novo');
+    Route::post('/novo_eletrodomestico', [EletrodomesticosController::class, 'store'])->name('eletrodomestico.store');
     //Editar
-    Route::get('/editar_eletrodomestico/{id}', [DashboardController::class, 'edit'])->name('eletrodomestico.editar');
-    Route::post('/editar_eletrodomestico', [DashboardController::class, 'update'])->name('eletrodomestico.salvar');
+    Route::get('/editar_eletrodomestico/{id}/edit', [EletrodomesticosController::class, 'edit'])->name('eletrodomestico.editar');
+    Route::post('/editar_eletrodomestico/{id}', [EletrodomesticosController::class, 'update'])->name('eletrodomestico.salvar');
     //Deletar
-    Route::delete('/deletar_eletrodomestico/{id}', [DashboardController::class, 'destroy'])->name('eletrodomestico.delete');
+    Route::delete('/deletar_eletrodomestico/{id}', [EletrodomesticosController::class, 'destroy'])->name('eletrodomestico.delete');
     // Filtro
-    Route::get('/eletrodomestico/filtro/{marca_id}', [DashboardController::class, 'filter'])->name('eletrodomestico.filter');
+    Route::get('/eletrodomestico/filtro/{marca_id}', [EletrodomesticosController::class, 'filter'])->name('eletrodomestico.filter');
 });
 
 
